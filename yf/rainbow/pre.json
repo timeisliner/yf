@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "relative": false,
+    "path": "./yf/rainbow",
+    "pre": "rainbow.pre",
+    "ep": "rainbow.js",
+    "title": "Rainbow"
+  },
+  "content": {
+    "meta": {
+      "name": "rainbow",
+      "project": "yf"
+    },
+    "brief": {
+      "create": "2019-5-6 21:52:19",
+      "about": "控制台，目前包括BDP、EI、CA三部分。"
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{Manifest
+{meta
+name :> manifest
+project :> yf
+}
+{link
+{purpose
+main  为指定项列出文件清单，并提供接入api
+
+@yf.builder
+}
+{logic
+{设计概览[0.0.1][2019-5-4 21:41:59]
+数据结构 - Data Structure - DS
+  适用类型 Type
+    默认 - 当前目录   - files
+    构建 - 虚拟目录   - vfiles
+    混合 - 当前+虚拟  - xfiles
+  文件项集合 File ITEM Set - FIS
+    文件项 FI ::= [latest, storage] | <name>.<ext>
+      版本标识 : 路径 | 文件名 - version : path | filename
+      ...
+    文件项
+    ...
+  latest ::= default path
+  storage ::= history list
+
+功能
+更新清单 - 读取清单，检查指定项文件，更新改动到清单文件。
+  update(path)manifest.json
+创建清单 - 清理指定项下文件，创建默认清单
+  builder(path)manifest.json
+载入清单，生成清单对象 - 读取清单文件，并返回操作对象
+  manifest(path)Manifest
+清单对象 Manifest
+  refresh()boolean                    - 刷新指定清单 - 重新读取清单
+  reload(path)boolean                 - 载入新的清单 - 更改清单文件
+  req(FI, version)                    - require操作  - 获取清单中指定版本的文件项
+
+
+}
+}
+{language
+{0.0.1 [nodejs]
+class DS
+  Type ::= default | construct | mixed
+  FIS ::= File Item Set | <FI>{FI}
+  FI ::= <version> : <path> | <version> : <filename>
+  
+  fi(fi, version) 取得指定FI的path或者filename
+  
+class Manifest
+  refresh() 刷新
+    return boolean
+  reload(path) 重载
+    path:string 清单文件路径
+    return boolean
+  req(FI, version) require  增强模式
+    FI:string 文件项
+    version:string : 版本标识
+    return [?require|string]
+  request(fi, version)  纯粹模式
+    FI:string 文件项
+    version:string : 版本标识
+    return:string [pathname]
+function
+  manifest(path) - 载入清单，生成清单对象
+    path:string 清单文件路径
+    return:Manifest 清单对象
+  builder(path, aliases) - 创建默认清单文件
+    path:string 清单文件路径
+    aliases:object fi别名
+    write:manifest.json
+  update(path, aliases) - 更新默认清单文件
+    path:string 清单文件路径
+    aliases:object fi别名
+    read:manifest.json
+    write:manifest.json
+exports: fn
+dependency: rainbow
+}
+}
+}
+{brief
+create :> 2019-5-4 21:16:3
+about :> 文件清单方案，提供一个简单框架用于管理指定项的文件。
+}
+}

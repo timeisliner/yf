@@ -1,0 +1,29 @@
+{
+  "type": "default",
+  "fis": {
+    "c.t": {
+      "latest": "c.t",
+      "history": {}
+    },
+    "c.tt": {
+      "latest": "c.tt",
+      "history": {}
+    },
+    "cvf.t": {
+      "latest": "cvf.t",
+      "history": {}
+    },
+    "yf.js": {
+      "latest": "ep.js",
+      "history": {}
+    },
+    "pre.json": {
+      "latest": "pre.json",
+      "history": {}
+    },
+    "yf.pre": {
+      "latest": "yf.pre",
+      "history": {}
+    }
+  }
+}

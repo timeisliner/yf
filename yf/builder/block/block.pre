@@ -1,0 +1,158 @@
+{Chain-Block
+{meta
+name :> block
+project :> yf
+}
+{link
+{purpose
+{DI数据信息化[0.0.1][2019-4-16 20:24:46]
+@F:\app\yfds\fileformat\build.pre
+
+基本结构: 数据信息化 Data Informatization
+  链 Chain - 将一个或多个<块>有效而有序的组织起来，是一个特殊的<块>
+    数据标识 - Data Marker - 用于标明该<链>的内部识别码
+  块 Block - <链>的有序的基本单元，因特定目的而构建
+    数据体 - Data Volume - 表示相对完整的数据
+      数据项 - Data Item - 对<数据体>的定义、解释、描述...
+}
+}
+{logic
+{使用BNF和自然语言对DI进行解释[0.0.1][2019-4-16 20:24:46]
+{BNF
+NewLine ::= NL
+NL ::= '\r\n'
+链 | Chain ::= C | chain
+块 | Block ::= B | block
+数据标识 | Data Marker ::= DM
+chain ::= <meta block><NL>{block NL}
+数据体 | Data Volume ::= DV
+元块 | meta block ::= block
+block ::= DV
+数据项 | Data Item ::= DI
+DV ::= <start><Title> NL <DI><NL>{DI NL} <end> NL
+start ::= '{'
+end ::= '}'
+DI ::= <Name> <separator> <Description> NL | <Description> NL | block
+separator ::= ':>'
+Title ::= 块标题
+Name ::= 一般名称
+Description ::= 对 Name 的定义、解释、描述... | NULL
+NULL ::= 空字符，什么都没有
+}
+{human nature
+构建 chain
+  基本要素
+    定位 path - 包括路径和名称
+    元块 meta block - 表示一个chain文件，通常来说一个chain文件只有一个根block
+      root block - 根块
+      filename - 对文件的命名，也是根块的标题
+
+构建 block
+  基本要素
+    指定文件名 Title - 如题
+    添加子项 child
+      DV
+        添加数据项
+          key/value
+          sequence
+          block
+
+}
+}
+}
+{language
+{使用nodejs实现的DI基本功能[0.0.1][2019-4-16 20:24:46]
+code : nodejs
+
+{build
+
+let chain_structure = {
+  path : 'path'
+  , meta : {
+    filename : 'filename'
+    , root : ['key/value', 'sequence', 'block']
+  }
+};
+
+
+Class Chain(path, filename);
+  setRoot(block);
+Class Block(title);
+  array.push()
+    addProp(key, value);
+      []
+    addDesc(description);
+      ''
+    addBlock(block);
+      Class
+
+
+let path = 'path';
+let filename = 'filename';
+
+let chi = new Chain(path, filename);
+
+let blk = new Block(title);
+blk.addProp(key, value);
+blk.addDesc(description);
+blk.addBlock(new Block(anotherTitle));
+
+chi.setRoot(blk);
+}
+
+{save
+const encode = 'utf-8'
+  , newline = '\r\n'
+  , start = '{'
+  , end = '}'
+  , kv = ':>'
+  ;
+
+encode - data | encdata
+  encProp  - constructor.name == 'Array'
+    key :> value
+  encDesc  - constructor.name == 'String'
+    description
+  encBlock - constructor.name == 'Block'
+    {title
+      {Prop | Desc | Block}
+    }
+
+
+save(path+filename, encdata, encode);
+
+}
+
+{load
+const encode = 'utf-8'
+  , newline = '\r\n'
+  , start = '{'
+  , end = '}'
+  , kv = ':>'
+  ;
+
+decode - data | decdata
+
+block
+line_start start title newline line_end
+
+
+start
+  title
+  child
+    match(start) - Block
+    match(kv) - Prop
+    else - description
+end
+
+load(path+filename, encode);
+
+}
+
+}
+}
+{brief
+create :> 2019-4-25 20:41:5
+about :> 构建一个指定结构的类块链文件。
+}
+}

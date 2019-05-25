@@ -1,0 +1,31 @@
+{
+  "signed": "rainbow",
+  "libs": {
+    "ps.js": {
+      "version": "",
+      "manifest": "./test/ps"
+    },
+    "verify.js": {
+      "version": "",
+      "manifest": "N:\\libs/test/yf/verify"
+    },
+    "yf.js": {
+      "manifest": "N:\\libs/test/yf"
+    },
+    "builder.js": {
+      "manifest": "N:\\libs/test/yf/builder"
+    },
+    "rainbow.js": {
+      "manifest": "N:\\libs/test/yf/rainbow"
+    },
+    "block.js": {
+      "manifest": "N:\\libs/test/yf/builder/block"
+    },
+    "manifest.js": {
+      "manifest": "N:\\libs/test/yf/builder/manifest"
+    },
+    "pre.js": {
+      "manifest": "N:\\libs/test/yf/builder/pre"
+    }
+  }
+}

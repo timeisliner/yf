@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "relative": true,
+    "path": "N:\\libs\\yf\\builder",
+    "pre": "builder.pre",
+    "ep": "builder.js",
+    "title": "builder"
+  },
+  "content": {
+    "meta": {
+      "name": "builder",
+      "project": "yf"
+    },
+    "brief": {
+      "create": "2019-5-22 22:5:22",
+      "about": ""
+    }
+  }
+}

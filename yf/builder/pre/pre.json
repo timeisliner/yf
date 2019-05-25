@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "relative": false,
+    "path": "N:\\libs\\yf\\builder\\pre",
+    "pre": "pre.pre",
+    "ep": "ep.0.1.2.js",
+    "title": "Preprocess"
+  },
+  "content": {
+    "meta": {
+      "name": "pre",
+      "project": "yf"
+    },
+    "brief": {
+      "create": "2019-4-16 20:24:46",
+      "about": "block子集，指定为yf的首选预构建方案，它将提供一个简单框架用于描述指定项的蓝图。"
+    }
+  }
+}

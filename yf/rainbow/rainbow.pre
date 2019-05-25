@@ -1,0 +1,66 @@
+{Rainbow
+{meta
+name :> rainbow
+project :> yf
+}
+{link
+{purpose
+后端控制台，目前包含基础的模块有yf项的builder和verify，common项；其主要目的是为功能项实现提供数据接入、数据输出和运行环境。
+
+[deprecated][2019-5-12 19:50:01]
+为基础组件builder和verify提供环境变量
+并为功能组件提供接入口
+}
+{logic
+{设计概览[0.0.1][2019-5-7 21:34:59]
+#0 CM - Construct Module
+#1 BDP - Basic Data Prepare
+#2 EI - Environment Initialize
+#3 CA - Component Achieve
+
+
+#0 CM
+  nodejs-global define
+    rainbow : entry point - global object
+      attributes
+        root : base dir path - top dir
+        libs : library caches - 缓存已加载的库 暂时禁用
+        manifest ： library list - 库清单
+      methods
+        request(fi, version, local) - 请求指定版本的组件
+          fi - 组件签名
+          version - 组件版本
+          local - 是否加载到本地 默认为false
+            加载到本地功能暂未实现
+        update(fi) - 更新指定版本的组件的manifest数据，如果指定版本的组件没有manifest数据，则创建一个manifest数据
+          fi - 组件签名
+      files
+        rainbow.json
+          配置文件，存储库的manifest路径
+        
+
+#1 BDP
+  global define
+    entry point : rainbow
+    attributes
+      root path : root
+    inner components
+      builder
+        block
+        pre
+        manifest
+      common
+        fsh
+        em
+        ps
+
+}
+}
+{language
+}
+}
+{brief
+create :> 2019-5-6 21:52:19
+about :> 控制台，目前包括BDP、EI、CA三部分。
+}
+}

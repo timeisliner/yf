@@ -1,0 +1,18 @@
+{builder
+{meta
+name :> builder
+project :> yf
+}
+{link
+{purpose
+}
+{logic
+}
+{language
+}
+}
+{brief
+create :> 2019-4-25 20:35:40
+about :> yf构建者，为一个yf基本库搭建基本框架，详见yf的pre文件。
+}
+}

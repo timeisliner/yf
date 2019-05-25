@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "relative": false,
+    "path": "./builder/manifest",
+    "pre": "manifest.pre",
+    "ep": "manifest.js",
+    "title": "Manifest"
+  },
+  "content": {
+    "meta": {
+      "name": "manifest",
+      "project": "yf"
+    },
+    "brief": {
+      "create": "2019-5-4 21:16:3",
+      "about": "文件清单方案，提供一个简单框架用于管理指定项的文件。"
+    }
+  }
+}

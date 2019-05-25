@@ -1,0 +1,119 @@
+{Preprocess
+{meta
+name :> pre
+project :> yf
+}
+{link
+{purpose
+{描述目的&整理思路[0.0.1][2019-4-16 20:24:46]
+}
+}
+{logic
+{更新至fsh版本0.1.1[0.1.4][2019-5-3 19:30:15]
+[add]
+verifyBI(bi)
+  检查并清洁bi数据。
+
+[change]
+require fsh => 0.1.1
+makeBI(bi) => mkbi(bi, cb)
+makePre(bi, pretty) => mkpre(bi, pretty)
+pre(path, pretty) => pre(path, pretty)
+exports obj => fn
+}
+{pre.json文件规则调整[0.1.3][2019-4-28 19:37:55]
+[change]
+基于辨识和简明
+meta.ep 入口文件命名不再固定为 ep.js
+  而是基于模块或项的名字来命名，这样在编辑的时候能轻松辨识。
+  例如本项 pre 的入口文件命名为 pre.js
+  
+}
+{pre_bi.json文件调整[0.1.2][2019-4-25 22:13:38]
+[change]
+基于简明
+pre_bi.json => pre.json
+  meta.filename => meta.pre
+build.js
+  makeBI(bi, version) => makeBI(bi)
+  const CONFIG_NAME = 'pre_bi.json'; => const DEFAULT_NAME = 'pre.json';
+[add]
+参考node modules设计
+pre_bi.json
+  meta.ep 入口文件 entry point
+    例如  meta.ep = 'ep.js'
+[deprecated]
+使用新的api实现这些旧功能
+build.js
+  createPre(bi, pretty)
+  createBI(path, filename, title, name, project, about)
+  init(path, pretty)
+  exports.last
+
+}
+{新的描述方式的设定等[0.1.1][2019-4-24 22:42:40]
+[add]
+1. 新的描述方式的设定:
+涉及link下的三大子项purpose,logic,language
+  描述方式(child)将添加(prop|desc|block)修改为: 添加(block)
+  添加的block的title含义如下
+    name[version][timestamp]
+  添加的block的child中的特殊标记如下
+    [add] : 新增
+    [change] : 修改
+    [deprecated] : 弃用
+  添加的block的child中的序列标记如下
+    n.
+    n ::= "非零正整数，起始为1，增量为1"
+
+[change]
+1. path类型定义:
+relative ::= true | false
+true ::= '相对路径'
+false ::= '绝对路径'
+  
+2. bi文件结构调整:
+<pre_bi.json>
+  {
+    "meta": {
+      "relative": "true",
+      "path": "./fileformat/pre",
+      "filename": "pre.pre",
+      "title": "File Format for Preprocess"
+    },
+    "content":{
+      "meta": {
+        "name": "pre",
+        "project": "yfds"
+      },
+      "brief": {
+        "about": "描述目的,设计逻辑,语言实现"
+      }
+    }
+  }
+}
+{设计逻辑&明确要求[0.0.1][2019-4-16 20:24:46]
+meta block - ff.pre
+  block - File Format for Preprocess
+    block - meta
+      item - name
+      item - project
+    block - link
+      block - purpose
+      block - logic
+      block - language
+    block - brief
+      item - create
+      item - about
+}
+}
+{language
+{语言实现&自动化[0.0.1][2019-4-16 20:24:46]
+}
+}
+}
+{brief
+create :> 2019-4-16 20:24:46
+about :> block子集，指定为yf的首选预构建方案，它将提供一个简单框架用于描述指定项的蓝图。
+}
+}

@@ -1,0 +1,17 @@
+{
+  "type": "default",
+  "fis": {
+    "pre.json": {
+      "latest": "pre.json",
+      "history": {}
+    },
+    "verify.js": {
+      "latest": "verify.0.0.3.js",
+      "history": {}
+    },
+    "verify.pre": {
+      "latest": "verify.pre",
+      "history": {}
+    }
+  }
+}

@@ -1,0 +1,130 @@
+{yf
+{meta
+name :> yf
+project :> yf
+}
+{link
+{purpose
+main  yf的实现流程
+minor 
+
+}
+{logic
+{yf作为控制台[0.2.0][2019-5-20 21:25:34][waited]
+
+程序结构
+  #1 数据逻辑 builder
+  #2 执行逻辑 verify
+  #3 环境设定 rainbow
+  
+
+}
+{修正[0.1.2][2019-5-4 19:57:30][finished]
+[change]
+将 标准化yf的文件版本管理方案的 version项
+  并入 builder子项 manifest
+
+#1 确定基调
+  标准化yf的libs构建方案: builder
+  标准化yf的文件版本管理方案: verify
+  标准化yf的控制台功能: rainbow
+
+
+#3 逻辑实现
+  交叉实现 builder 和 verify
+    源于 builder 和 verify 互相依存这一前提
+  builder
+    文件描述方案: block
+      [subset] pre - 预构建方案，提供一个简单框架用于描述指定项的蓝图
+      [subset] manifest - 文件清单方案，提供一个简单框架用于管理指定项的文件
+        version 版本指引，提供一个简单的入口来解决版本调用的问题
+  verify
+    verify 版本校验，提供一个简单的方法来解决新旧版本更替问题
+
+}
+{设计概览[0.1.1][2019-4-26 20:56:32][finished]
+main
+重新设计结构
+
+程序阶段化 program stage [PS]
+  #1 确定基调
+  #2 准备工作
+  #3 逻辑实现
+  #4 代码部署
+
+#1 确定基调
+  标准化yf的libs构建方案: builder
+  标准化yf的文件版本管理方案: version verify
+  标准化yf的控制台功能: rainbow
+
+#2 准备工作
+  迁移 F:\app\yfds 的全部内容到 N:\libs
+
+#3 逻辑实现
+  最后实现 rainbow
+    源于 rainbow 为窗口集成工具这一背景
+  交叉实现 builder 和 version verify
+    源于 builder 和 version verify 互相依存这一前提
+  builder
+    文件描述方案: block
+      [subset] pre - 预构建方案，提供一个简单框架用于描述指定项的蓝图
+      [subset] manifest - 文件清单方案，提供一个简单框架用于管理指定项的文件
+  version verify
+    version 版本指引，提供一个简单的入口来解决版本调用的问题
+    verify 版本校验，提供一个简单的方法来解决新旧版本更替问题
+  rainbow
+    基础数据准备 basic date prepare [BDP]
+      version verify
+    环境初始化 environment initialize [EI]
+      sequence
+        0 - register  - global define
+        1 - setup     - version control
+      interpreter
+        0
+          调试     debug
+          控制台   console
+          版本控制 version control
+          核心集   core set - cs
+    组件实现 component achieve [CA]
+      api
+
+#4 代码部署
+}
+{设计概览[0.0.1][deprecated]
+main
+#1 yf通用的配置信息结构
+  构建者 builder 
+    文件构建方式 Chain-Block
+      文件构建方式子集
+        pre - 预构建方案
+        manifest - 文件清单方案
+        
+    目录构建方式
+      
+#2 搭建yf程序化的环境
+  程序阶段化 program stage [PS]
+    基础数据准备 basic date prepare [BDP]
+      版本校验 version verify - vv
+        version
+        verify
+    环境初始化 environment initialize [EI]
+      sequence
+        0 - register  - global define
+        1 - setup     - version control
+      interpreter
+        0
+          调试     debug
+          控制台   console
+          版本控制 version control
+          核心集   core set - cs
+    组件实现 component achieve [CA]
+}
+}
+{language
+}
+}
+{brief
+create :> 2019-4-24 21:56:56
+about :> yf表示为一个混合文本与脚本并以文件为基本单位的私人数据集，它以指定用途的库的形式将数据分解成各个相对独立的部分，目前，yf的一切内容都还在架构阶段。
+}
+}

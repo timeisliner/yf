@@ -1,0 +1,24 @@
+{
+  "type": "default",
+  "fis": {
+    "pre.js": {
+      "latest": "ep.0.1.4.js",
+      "history": {
+        "0.1.2": "ep.0.1.2.js",
+        "0.0.1": "ep.js"
+      }
+    },
+    "notepad.xml": {
+      "latest": "notepad.xml",
+      "history": {}
+    },
+    "pre.json": {
+      "latest": "pre.json",
+      "history": {}
+    },
+    "pre.pre": {
+      "latest": "pre.pre",
+      "history": {}
+    }
+  }
+}

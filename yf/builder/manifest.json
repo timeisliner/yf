@@ -1,0 +1,13 @@
+{
+  "type": "default",
+  "fis": {
+    "builder.pre": {
+      "latest": "builder.pre",
+      "history": {}
+    },
+    "pre.json": {
+      "latest": "pre.json",
+      "history": {}
+    }
+  }
+}

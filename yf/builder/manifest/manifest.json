@@ -1,0 +1,17 @@
+{
+  "type": "default",
+  "fis": {
+    "manifest.js": {
+      "latest": "manifest.js",
+      "history": {}
+    },
+    "manifest.pre": {
+      "latest": "manifest.pre",
+      "history": {}
+    },
+    "pre.json": {
+      "latest": "pre.json",
+      "history": {}
+    }
+  }
+}

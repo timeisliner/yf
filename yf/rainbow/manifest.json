@@ -1,0 +1,21 @@
+{
+  "type": "default",
+  "fis": {
+    "pre.json": {
+      "latest": "pre.json",
+      "history": {}
+    },
+    "rainbow.js": {
+      "latest": "rainbow.js",
+      "history": {}
+    },
+    "rainbow.json": {
+      "latest": "rainbow.json",
+      "history": {}
+    },
+    "rainbow.pre": {
+      "latest": "rainbow.pre",
+      "history": {}
+    }
+  }
+}

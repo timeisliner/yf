@@ -1,0 +1,17 @@
+{
+  "type": "default",
+  "fis": {
+    "block.pre": {
+      "latest": "block.pre",
+      "history": {}
+    },
+    "block.js": {
+      "latest": "ep.js",
+      "history": {}
+    },
+    "pre.json": {
+      "latest": "pre.json",
+      "history": {}
+    }
+  }
+}

@@ -1,0 +1,115 @@
+{Verify & Executor
+{meta
+name :> verify
+project :> yf
+}
+{link
+{purpose
+main 查证libs下所有项的 builder 操作是否完成，未完成的补充完成。
+minor 将main目的通用化
+}
+{logic
+{重新设计verify[0.1.0][2019-5-20 21:10:20]
+verify使用两种实现
+  _verify 仅使用nodejs自带库
+  custom_verify 使用nodejs自带库以及自定义库
+  
+  不论哪种实现，都是通过 verify.json 这一配置文件来执行计划的查证和执行
+    verify.json 通过设置版本来区别每一次的 查证
+      记录执行 执行完成 | 尚未执行
+      设立实现方式  _verify | custom_verify
+      执行流程
+        流水编号 识别流程子项 并对应 到文件
+    
+  
+}
+{libs清理项[0.0.3][2019-5-17 21:01:15]
+#1 清理指定库
+  yf, common, projects
+  前提条件
+    目录下存在 pre.json 或 pre_bi.json 文件
+  清理目标
+    将 pre_bi.json 重命名为 pre.json
+      同时更新数据
+    创建 manifest 清单
+      前提条件
+        目录下不存在 manifest.json
+      目标
+        ep.js 等同于 项目.js
+    添加入口文件 .js
+      前提条件
+        目录下不存在 ep.js 或 项目.js 文件
+    记录manifest到rainbow.json
+  
+#2 构建console库   [deprecated:libs.yf已经具备该用途]
+  basic information
+    path    .
+    pre     .pre
+    ep      .js
+    title   Libraries
+    name    libs
+    project 
+    about   libs项目的控制台程序，后端服务逻辑实现。
+  将 basic information 写入 pre.json 文件
+  根据 basic information 创建 pre文件 和 ep文件 manifest文件
+
+#3 在common库下构建mission子项   [deprecated:libs.yf.verify已经着手具备该用途]
+    path    ./common/mission
+    pre     .pre
+    ep      .js
+    title   
+    name    mission
+    project common
+    about   针对yf库下verify子项设立的任务流程解决方案。
+
+}
+{builder项下pre相关[0.0.2][2019-5-13 19:44:15]
+[add]
+#1 处理 pre_bi 问题
+  pre_bi.json 修改至 pre.json
+    检查 pre_bi.json 是否存在
+    读取 pre_bi.json
+    保存至新建 pre.json
+    删除 pre_bi.json
+
+#2 添加入口文件 项名.js 问题
+  检查 pre.json 是否存在
+    检查 项名.js 是否存在
+      新建文件 项名::= 默认为文件夹名
+        扩展名为 js
+        默认模板内容 [lib]template/js/normal.js
+
+
+#3 创建库 template
+  存储模板文件
+
+#4 为通过pre构建的库创建清单manifest
+
+}
+{主要功能[0.0.1][2019-4-28 20:34:08]
+[add]
+监控builder文件
+识别builder文件
+执行builder文件
+日志记录
+}
+}
+{language
+{[0.0.2][deprecated]
+#1
+  updatePre()  更新pre.json到最新设定，不涉及其它改动。
+
+#2
+  setEP()     新建入口文件 项名.js，载入默认的模板
+
+#3
+  initLib()   创建一个库
+
+}
+}
+}
+{brief
+create :> 2019-4-28 20:28:39
+about :> 查证设计计划，并执行，见yf定义。
+}
+}

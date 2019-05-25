@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "relative": true,
+    "path": "./verify",
+    "pre": "verify.pre",
+    "ep": "verify.js",
+    "title": "Verify & Executor"
+  },
+  "content": {
+    "meta": {
+      "name": "verify",
+      "project": "yf"
+    },
+    "brief": {
+      "create": "2019-4-28 20:28:39",
+      "about": "查证设计计划，并执行，见yf定义。"
+    }
+  }
+}
